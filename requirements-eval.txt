@@ -1,0 +1,7 @@
+# Optional: install into a separate evaluation environment if dependencies conflict.
+# API adapter must be smoke-tested before any formal scoring run.
+ragas==0.4.3
+python-dotenv==1.2.4
+langchain==0.3.27
+langchain-community==0.3.31
+langchain-openai==0.3.35

@@ -1,0 +1,33 @@
+services:
+  api:
+    build: .
+    env_file: .env
+    environment:
+      DB_PATH: /app/runtime/chroma
+      UPLOAD_DIR: /app/runtime/uploads
+      ARTIFACT_DIR: /app/artifacts
+      HF_HOME: /cache/huggingface
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - rag-runtime:/app/runtime
+      - model-cache:/cache/huggingface
+      - ./artifacts:/app/artifacts
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+  ui:
+    build: .
+    command: ["python", "-m", "streamlit", "run", "streamlit_app.py", "--server.address", "0.0.0.0", "--server.port", "8501"]
+    environment:
+      API_URL: http://api:8000
+    ports:
+      - "127.0.0.1:8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
+volumes:
+  rag-runtime:
+  model-cache:

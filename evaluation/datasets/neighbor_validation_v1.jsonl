@@ -1,0 +1,4 @@
+{"id":"NV01","question":"自定义 Docker 网络中的嵌入式 DNS 服务器地址是什么？IPv6-only 容器还能使用它吗？","answerable":true,"required_claims":["嵌入式 DNS 地址是 127.0.0.11。","该 IPv4 地址在 IPv6-only 容器中也可用。"],"evidence":"data/docker_official/raw/content/manuals/engine/network/_index.md:263-268"}
+{"id":"NV02","question":"没有运行中的容器使用某个 Docker volume 时，这个卷会自动删除吗？如何清理未使用的卷？","answerable":true,"required_claims":["不会自动删除。","可以使用 docker volume prune 清理未使用的卷。"],"evidence":"data/docker_official/raw/content/manuals/engine/storage/volumes.md:69-72"}
+{"id":"NV03","question":"我们公司生产环境的 Docker 宿主机当前配置的 DNS 服务器地址是什么？","answerable":false,"required_claims":["说明文档缺少目标环境配置，无法确定实际地址。","不把通用示例地址断言为当前生产配置。"],"evidence":"当前知识库不包含该生产环境实际配置。"}
+{"id":"NV04","question":"我们公司上周运行 docker volume prune 清理了多少个卷？","answerable":false,"required_claims":["说明缺少实际执行记录，无法确定数量。","不编造具体数量。"],"evidence":"当前知识库不包含该生产环境执行记录。"}

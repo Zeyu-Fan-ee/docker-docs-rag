@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+.venv
+.venv-eval
+.git
+__pycache__
+chroma_db*
+legacy
+artifacts
+evaluation/results
+data/uploads

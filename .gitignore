@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+.venv/
+.venv-eval/
+__pycache__/
+*.py[cod]
+chroma_db*/
+data/uploads/
+artifacts/
+evaluation/results/*
+!evaluation/results/.gitkeep
+legacy/
+.pytest_cache/
